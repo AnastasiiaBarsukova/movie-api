@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.filmsAPI.common.ResourceNotFoundException;
+
 @Service
 public class FilmService {
     private final FilmRepository filmRepository;
@@ -13,14 +15,10 @@ public class FilmService {
     }
 
     public FilmInfo findById(int id) {
-        return filmRepository.getFilmInfoById(id).orElseThrow(() -> new FilmNotFoundException(id));
+        return filmRepository.getFilmInfoById(id).orElseThrow(() -> new ResourceNotFoundException("Film", id));
     }
 
     public List<FilmInfo> findBy(FilmFilter filter) {
         return filmRepository.getFilmInfoBy(filter);
-    }
-
-    public void saveFilm(FilmInfo film) {
-        return filmRepository.postFilm(film);
     }
 }

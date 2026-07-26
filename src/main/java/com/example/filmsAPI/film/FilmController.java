@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,15 +31,5 @@ public class FilmController {
 
         FilmFilter filter = new FilmFilter(title, category, minLength, maxLength, releaseYear);
         return filmService.findBy(filter);
-    }
-    
-    @PostMapping
-    public void saveFilm(@RequestParam String title,
-        @RequestParam String category,
-        @RequestParam Short length,
-        @RequestParam(required=false) String description,
-        @RequestParam Integer releaseYear) {
-            FilmInfo film = new FilmInfo(null, title, length, releaseYear, category, description);
-            filmService.saveFilm(film);
     }
 }

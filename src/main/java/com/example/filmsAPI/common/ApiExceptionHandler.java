@@ -5,19 +5,17 @@ import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.example.filmsAPI.film.FilmNotFoundException;
-
 @RestControllerAdvice
 public class ApiExceptionHandler  {
     
-    @ExceptionHandler(FilmNotFoundException.class)
-    public ProblemDetail handleFilmNotFound(FilmNotFoundException exception) {
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ProblemDetail handleFilmNotFound(ResourceNotFoundException exception) {
         ProblemDetail problem = ProblemDetail.forStatusAndDetail(
                 HttpStatus.NOT_FOUND,
                 exception.getMessage()
         );
 
-        problem.setTitle("Film not found");
+        problem.setTitle("Not found");
 
         return problem;
     }

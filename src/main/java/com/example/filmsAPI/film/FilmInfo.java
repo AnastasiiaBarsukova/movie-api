@@ -5,7 +5,6 @@ public record FilmInfo(
         String title,
         Short length,
         Integer releaseYear,
-        String category,
+        String categories,
         String description
-) {
-}
+) {}
