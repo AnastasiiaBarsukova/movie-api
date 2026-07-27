@@ -21,4 +21,4 @@ Das Projekt wurde erstellt, um die Entwicklung von REST-Services mit Spring Boot
 - Maven
 - PostgreSQL
 
-![Swagger UI](src\screenshotSwagger.png)
+![Swagger UI](src/screenshotSwagger.png)
