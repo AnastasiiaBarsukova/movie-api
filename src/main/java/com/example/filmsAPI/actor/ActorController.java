@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/v1/actor")
+@RequestMapping("/api/v1/actors")
 public class ActorController {
     private final ActorService actorService;
 
@@ -26,7 +26,7 @@ public class ActorController {
         return actorService.getActorInfoBy(id);
     }
     
-    @GetMapping("/all")
+    @GetMapping()
     public List<ActorInfo> getAllActors() {
         return actorService.getAllActors();
     }
